@@ -10,6 +10,9 @@ public class zero : MonoBehaviour
     SpriteRenderer sr;
     Transform tf;
     bool onGround;
+    int maxJump = 2;
+    int curJump = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +41,11 @@ public class zero : MonoBehaviour
                 animator.Play("run");
             tf.Translate(new Vector2(speed, 0));
         }
-        if (Input.GetKeyDown(KeyCode.X) && onGround)
+        if (Input.GetKeyDown(KeyCode.X) && (onGround||curJump<maxJump))
         {
             animator.Play("jump");
-            rb.AddForce(new Vector2(0, 200));
+            rb.AddForce(new Vector2(0, 200)); 
+            curJump++;
         }
         if(Input.GetKeyDown(KeyCode.C))
         {
@@ -75,11 +79,12 @@ public class zero : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D()
+    void OnCollisionEnter2D(Collision2D col)
     {
         onGround=true;
+        curJump = 0;    
     }
-    void OnCollisionExit2D()
+    void OnCollisionExit2D(Collision2D col)
     {
         onGround = false;
     }
