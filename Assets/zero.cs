@@ -41,7 +41,7 @@ public class zero : MonoBehaviour
                 animator.Play("run");
             tf.Translate(new Vector2(speed, 0));
         }
-        if (Input.GetKeyDown(KeyCode.X) && (onGround||curJump<maxJump))
+        if (Input.GetKeyDown(KeyCode.X) && curJump<maxJump)
         {
             animator.Play("jump");
             rb.AddForce(new Vector2(0, 200)); 
