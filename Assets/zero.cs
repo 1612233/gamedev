@@ -81,12 +81,16 @@ public class zero : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        onGround=true;
-        curJump = 0;    
+        if (col.gameObject.name == "ground")
+        {
+            onGround = true;
+            curJump = 0;
+        }
     }
     void OnCollisionExit2D(Collision2D col)
     {
-        onGround = false;
+        if(col.gameObject.name=="ground")  
+            onGround = false;
     }
 
 }
