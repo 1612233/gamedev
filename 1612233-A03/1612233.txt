@@ -1,0 +1,6 @@
+github:
+https://github.com/1612233/gamedev
+
+resource:
+http://www.angelfire.com/mn2/ryuujin/sprites/zerox42.gif
+http://www.angelfire.com/mn2/ryuujin/sprites/zerox4.gif
